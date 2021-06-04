@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const person = {
+            name: 'Germán',
+            lastName: 'Álvarez',
+            origin: undefined,
+            celiac: false,
+            employed: true,
+            children: 0,
+            cars: 1,
+            hobbies: ['rave', 'beer', 'programming'],
+            birth: new Date(1986, 4, 23),
+            address: {
+                street: 'García Luna',
+                number: 9999,
+                code: 28002,
+                city: 'Madrid'
+            },
+            subscriptions: [
+                {
+                    name: 'Netflix',
+                    cost: 12.99,
+                    currency: '€'
+                },
+                {
+                    name: 'Car2go',
+                    cost: 29.99,
+                    currency: '€'
+                }
+            ],
+            buyCar: function () {
+                this.cars++
+                console.log(`Ahora tengo ${this.cars} coches`)
+            },
+            learnNewHobby: function (theNewHooby) {
+                this.hobbies.push(theNewHooby)
+            },
+            buySubscription: function (newSubscription) {
+                this.subscriptions.push(newSubscription)
+            },
+            haveChildren: function (numberOfBornChildren = 1) {
+                this.children += numberOfBornChildren
+            }
+        }
+
+
+        // PROPERTY GETTER ACCESS
+        console.log(`Mi nombre es ${person.name} ${person.lastName}, y tengo ${person['cars']} coche/s`)
+
+        // PROPERTY SETTER ACCESS
+        person.employed = false
+        person['cars'] = 2
+        console.log(`¡He perdido mi trabajo! ${person.employed}, pero tengo un coche más: ${person.cars}`)
+
+        // OBJECT EXTENSION
+        console.log(`Antes no tenía salario ${person.salary}`)
+        person.salary = 9289782
+        console.log(`Y ahora mi salario es ${person.salary}`)
+
+
+
+        // EXTRA OPERATIONS
+        person.subscriptions[0].cost = 15.99
+        console.log(`¡Me han subido el precio de Netflix a ${person.subscriptions[0].cost}`)
+
+        person.hobbies.push('sky')
+        console.log(`Estos son mis hobbies ahora: ${person.hobbies}`)
+
+        // .forEach() es un método que recibe como argumento una función, con un parámetro por defecto: cada elemento iterado del array
+        person.subscriptions.forEach(function (eachSubscription) {
+            console.log(`Estoy pagando ${eachSubscription.cost} por ${eachSubscription.name}`)
+        })
+
+
+
+        // CUSTOM METHODS
+        person.buyCar()
+        person.buyCar()
+        person.buyCar()
+
+        person.learnNewHobby('chess')
+        person.learnNewHobby('python')
+        console.log(`Ahora tengo estos hobbies:`, person.hobbies)
+
+        person.buySubscription({ name: 'Spoti', cost: 19.99, currency: '€' })
+        console.log(`Ahora tengo estas suscripciones:`, person.subscriptions)
+
+        person.haveChildren()
+        console.log(`Ahora tengo estos hijo/s:`, person.children)
+
+
+
+
+        // ADDITIONAL INFO
+
+        /*
+
+        // in operator
+        console.log(`¿Tiene la persona propiedad "height"? ${'height' in person}`)
+        console.log(`¿Tiene la persona propiedad "cars"? ${'cars' in person}`)
+
+        // properties iterator
+        const personKeys = Object.keys(person)
+        console.log(`El array de propiedades del objeto es: ${personKeys}`)
+
+        // values iterator
+        const personValues = Object.values(person)
+        console.log(`El array de valores del objeto es: ${personValues}`)
+
+        */
+
+
+
+    </script>
+</body>
+
+</html>

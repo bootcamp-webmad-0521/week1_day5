@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        class Person {
+
+            constructor(nameValue, lastNameValue, celiacValue, carsValue, hobbiesValue) {
+                this.name = nameValue
+                this.lastName = lastNameValue
+                this.celiac = celiacValue
+                this.cars = carsValue
+                this.hobbies = hobbiesValue
+                this.alive = true
+            }
+
+            learnNewHobby(theNewHobby) {
+                this.hobbies.push(theNewHobby)
+            }
+
+            buyCar(numberOfCars) {
+                this.cars += numberOfCars
+            }
+        }
+
+
+        // Instances
+        const person1 = new Person('German', 'Alvarez', false, 0, ['rave', 'beer', 'programming'])
+        const person2 = new Person('Kevin', 'Santana', true, 2, ['beach', 'beer', 'html'])
+
+        // GETTER ACCESS TO PROPERTIES
+        console.log(`La persona 1 se llama ${person1.name} ${person1.lastName}, y parece que está viva: ${person1.alive}`)
+
+        // CUSTOM METHODS
+        person1.learnNewHobby('chess')
+        person1.buyCar(3)
+
+        console.log(`Ahora estos son mis hobbies: ${person1.hobbies}`)
+        console.log(`Ahora estos son mis coches: ${person1.cars}`)
+
+    </script>
+
+
+</body>
+
+</html>
